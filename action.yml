@@ -3,8 +3,7 @@ description: 'Git push'
 inputs:
   message:
     description: 'Commit message'
-    required: false
-    default: ''
+    required: true
   author:
     description: 'Commit author'
     required: false
@@ -43,8 +42,5 @@ runs:
     - run: |
         git stage -A .
         git commit -m ${{ inputs.message }}
-        until git push origin ${{ inputs.branch }}
-        do
-          git pull origin ${{ inputs.branch }}
-        done
+        ./push.sh ${{ inputs.branch }}
       shell: bash
