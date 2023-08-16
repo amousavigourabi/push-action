@@ -6,7 +6,7 @@ then
   git switch $1
   git merge --squash --strategy-option=theirs --allow-unrelated-histories stash
   git stash drop
-  git reset --soft HEAD~1
+  git reset HEAD -- .
 else
   git switch --orphan $1
 fi
