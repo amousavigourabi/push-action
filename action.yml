@@ -45,6 +45,6 @@ runs:
       shell: bash
     - run: |
         git stage -A ${{ inputs.files }}
-        git commit -m ${{ inputs.message }}
+        git commit -m '${{ inputs.message }}'
         ./push.sh ${{ inputs.branch }}
       shell: bash
