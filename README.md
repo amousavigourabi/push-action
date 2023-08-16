@@ -66,6 +66,7 @@ However, both of these values can be customized to push to other branches, under
     message: 'Add generated files'
     rebase: true
     branch: 'reports'
+    files: 'reports/'
 ```
 
 # License
