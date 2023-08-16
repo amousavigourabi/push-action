@@ -1,5 +1,5 @@
-name: 'Push action'
-description: 'Git push'
+name: 'Stage, commit, and push'
+description: 'Stage, commit, and push to GitHub repositories from GitHub actions.'
 inputs:
   message:
     description: 'Commit message'
