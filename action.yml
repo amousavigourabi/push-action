@@ -40,7 +40,6 @@ runs:
   steps:
     - name: 'Configure the runner'
       run: |
-        echo "${{ github.action_path }}" >> $GITHUB_PATH
         git config --global user.name ${{ inputs.author }}
         git config --global user.email ${{ inputs.email }}
       shell: bash
@@ -56,8 +55,8 @@ runs:
       shell: bash
     - name: 'Commit and push the changed files'
       run: |
-        sudo sh setup-branch.sh ${{ inputs.branch }}
+        sudo ${{ github.action_path }}/setup-branch.sh ${{ inputs.branch }}
         git stage -A ${{ inputs.files }}
-        commit.sh "${{ inputs.message }}" ${{ inputs.allow-empty }}
-        sudo sh push.sh ${{ inputs.branch }}
+        ${{ github.action_path }}/commit.sh "${{ inputs.message }}" ${{ inputs.allow-empty }}
+        sudo ${{ github.action_path }}/push.sh ${{ inputs.branch }}
       shell: bash
