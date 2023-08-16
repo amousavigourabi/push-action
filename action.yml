@@ -34,7 +34,6 @@ runs:
     - name: 'Configure the runner'
       run: |
         echo "${{ github.action_path }}" >> $GITHUB_PATH
-        setup-branch.sh ${{ inputs.branch }}
         git config --global user.name ${{ inputs.author }}
         git config --global user.email ${{ inputs.email }}
       shell: bash
@@ -50,6 +49,7 @@ runs:
       shell: bash
     - name: 'Commit and push the changed files'
       run: |
+        setup-branch.sh ${{ inputs.branch }}
         git stage -A ${{ inputs.files }}
         git commit -m "${{ inputs.message }}"
         push.sh ${{ inputs.branch }}
