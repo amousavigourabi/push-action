@@ -31,20 +31,25 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: |
+    - name: 'Configure the runner'
+      run: |
+        echo "${{ github.action_path }}" >> $GITHUB_PATH
         git config --global user.name ${{ inputs.author }}
         git config --global user.email ${{ inputs.email }}
       shell: bash
-    - if: ${{ !inputs.fast-forward && inputs.rebase }}
+    - name: 'Set rebase pull mode'
+      if: ${{ !inputs.fast-forward && inputs.rebase }}
       run: |
         git config pull.rebase true
       shell: bash
-    - if: ${{ inputs.fast-forward }}
+    - name: 'Set fast-forward pull mode'
+      if: ${{ inputs.fast-forward }}
       run: |
         git config pull.ff true
       shell: bash
-    - run: |
+    - name: 'Commit and push the changed files'
+      run: |
         git stage -A ${{ inputs.files }}
-        git commit -m '${{ inputs.message }}'
-        ./push.sh ${{ inputs.branch }}
+        git commit -m "${{ inputs.message }}"
+        push.sh ${{ inputs.branch }}
       shell: bash
