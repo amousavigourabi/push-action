@@ -21,6 +21,10 @@ inputs:
     description: 'Pull fast-forward config'
     required: false
     default: false
+  branch:
+    description: 'Git branch'
+    required: false
+    default: '${GITHUB_REF_NAME}'
 runs:
   using: 'composite'
   steps:
@@ -39,8 +43,8 @@ runs:
     - run: |
         git stage -A .
         git commit -m ${{ inputs.message }}
-        until git push origin ${GITHUB_REF_NAME}
+        until git push origin ${{ inputs.branch }}
         do
-          git pull origin ${GITHUB_REF_NAME}
+          git pull origin ${{ inputs.branch }}
         done
       shell: bash
