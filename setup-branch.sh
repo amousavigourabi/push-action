@@ -1,6 +1,6 @@
 #!/bin/sh
-git fetch --all
-if git rev-parse --quiet --verify "$1" >/dev/null
+git fetch --all --quiet
+if git rev-parse --quiet --verify "origin/$1" >/dev/null
 then
   git switch $1
 else
