@@ -43,6 +43,11 @@ However, both of these values can be customized to push to other branches, under
     #
     # Default: '.'
     files: ''
+
+    # Allow empty commits to be pushed
+    #
+    # Default: false
+    allow-empty: ''
 ```
 
 # Scenarios
@@ -67,6 +72,7 @@ However, both of these values can be customized to push to other branches, under
     rebase: true
     branch: 'reports'
     files: 'reports/'
+    allow-empty: true
 ```
 
 # License

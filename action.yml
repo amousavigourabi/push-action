@@ -28,6 +28,10 @@ inputs:
     description: 'Files to push'
     required: false
     default: '.'
+  allow-empty:
+    description: 'Allow empty commits to be pushed'
+    required: false
+    default: false
 runs:
   using: 'composite'
   steps:
@@ -51,6 +55,6 @@ runs:
       run: |
         setup-branch.sh ${{ inputs.branch }}
         git stage -A ${{ inputs.files }}
-        git commit --allow-empty -m "${{ inputs.message }}"
+        commit.sh "${{ inputs.message }}" ${{ inputs.allow-empty }}
         push.sh ${{ inputs.branch }}
       shell: bash
