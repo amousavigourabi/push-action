@@ -33,7 +33,7 @@ runs:
   steps:
     - name: 'Configure the runner'
       run: |
-        git switch -c ${{ inputs.branch }}
+        git switch --orphan ${{ inputs.branch }}
         echo "${{ github.action_path }}" >> $GITHUB_PATH
         git config --global user.name ${{ inputs.author }}
         git config --global user.email ${{ inputs.email }}
