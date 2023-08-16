@@ -1,5 +1,8 @@
 name: 'Stage, commit, and push'
 description: 'Stage, commit, and push to GitHub repositories from GitHub actions.'
+branding:
+  icon: 'arrow-up-circle'
+  color: 'blue'
 inputs:
   message:
     description: 'Commit message'
