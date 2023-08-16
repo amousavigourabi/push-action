@@ -79,6 +79,12 @@ GitHub's [actions/checkout](https://github.com/actions/checkout) action.
     allow-empty: true
 ```
 
+# Contributing
+
+Contributions are more than welcome. If you spot a bug or have a feature request, you can open an issue for it
+on GitHub. Pull requests for improvements or bugfixes are always appreciated. Please refer to the issue that
+is being solved in the pull request description.
+
 # License
 
 This project is licensed under the [Apache-2.0 License](LICENSE).
