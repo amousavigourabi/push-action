@@ -43,8 +43,5 @@ runs:
     - run: |
         git stage -A .
         git commit -m ${{ inputs.message }}
-        until git push origin ${{ inputs.branch }}
-        do
-          git pull origin ${{ inputs.branch }}
-        done
+        ./push.sh ${{ inputs.branch }}
       shell: bash
