@@ -49,7 +49,8 @@ runs:
       shell: bash
     - name: 'Commit and push the changed files'
       run: |
+        setup-branch.sh ${{ inputs.branch }}
         git stage -A ${{ inputs.files }}
-        git commit -m "${{ inputs.message }}"
+        git commit --allow-empty -m "${{ inputs.message }}"
         push.sh ${{ inputs.branch }}
       shell: bash
