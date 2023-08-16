@@ -6,6 +6,10 @@ By default, the code is pushed to the repository and branch the workflow was tri
 with the credentials of the user that triggered the workflow.
 However, both of these values can be customized to push to other branches, under other users.
 
+It is important to note that the repository that is currently checked out will be used.
+The easiest way to make sure you do not run into any issues here is to check whether you use
+GitHub's [actions/checkout](https://github.com/actions/checkout) action.
+
 # Usage
 
 ```yaml
