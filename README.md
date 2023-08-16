@@ -38,6 +38,11 @@ However, both of these values can be customized to push to other branches, under
     #
     # Default: '${GITHUB_REF_NAME}'
     branch: ''
+
+    # The files to commit and push
+    #
+    # Default: '.'
+    files: ''
 ```
 
 # Scenarios
