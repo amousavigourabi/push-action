@@ -2,18 +2,18 @@
 git fetch --all --quiet
 if git rev-parse --quiet --verify "origin/$1" >/dev/null
 then
-  ls -la
+  ls
   git stash --include-untracked
   work_branch=$(git symbolic-ref --short HEAD)
   git switch $1
-  ls -la
+  ls
   git checkout "$work_branch" -- .
-  ls -la
+  ls
   git merge --squash --strategy-option=theirs --allow-unrelated-histories stash
-  ls -la
+  ls
   git stash drop
   git reset HEAD -- .
-  ls -la
+  ls
 else
   git switch --orphan $1
 fi
