@@ -56,8 +56,8 @@ runs:
       shell: bash
     - name: 'Commit and push the changed files'
       run: |
-        sudo setup-branch.sh ${{ inputs.branch }}
+        sudo sh setup-branch.sh ${{ inputs.branch }}
         git stage -A ${{ inputs.files }}
         commit.sh "${{ inputs.message }}" ${{ inputs.allow-empty }}
-        sudo push.sh ${{ inputs.branch }}
+        sudo sh push.sh ${{ inputs.branch }}
       shell: bash
