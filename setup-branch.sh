@@ -1,7 +1,7 @@
 #!/bin/sh
 git fetch --all --quiet
 git stash --include-untracked
-stash_ref=$(git stash create)
+stash_ref="$(git stash create)"
 git stash list
 work_branch=$(git symbolic-ref --short HEAD)
 if git rev-parse --quiet --verify "origin/$1" >/dev/null
