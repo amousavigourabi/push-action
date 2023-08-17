@@ -11,5 +11,8 @@ else
   git commit --allow-empty -m "Initialize branch"
 fi
 git merge --squash --strategy-option=theirs --allow-unrelated-histories $work_branch
-git stash apply "$stash_ref"
+if [ -n "$stash_ref" ]
+then
+  git stash pop "$stash_ref"
+fi
 git reset HEAD -- .
