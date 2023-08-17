@@ -1,6 +1,7 @@
 #!/bin/sh
 git fetch --all --quiet
-git stash --include-untracked
+git stage -A .
+git stash
 stash_ref="$(git stash create)"
 git stash list
 work_branch=$(git symbolic-ref --short HEAD)
