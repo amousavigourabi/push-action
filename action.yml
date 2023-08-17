@@ -18,11 +18,11 @@ inputs:
   rebase:
     description: 'Pull rebase config'
     required: false
-    default: true
+    default: false
   fast-forward:
     description: 'Pull fast-forward config'
     required: false
-    default: false
+    default: true
   branch:
     description: 'Git branch'
     required: false
@@ -44,12 +44,12 @@ runs:
         git config --global user.email ${{ inputs.email }}
       shell: bash
     - name: 'Set rebase pull mode'
-      if: ${{ !inputs.fast-forward && inputs.rebase }}
+      if: ${{ inputs.rebase }}
       run: |
         git config pull.rebase true
       shell: bash
     - name: 'Set fast-forward pull mode'
-      if: ${{ inputs.fast-forward }}
+      if: ${{ !inputs.rebase && inputs.fast-forward }}
       run: |
         git config pull.ff true
       shell: bash
