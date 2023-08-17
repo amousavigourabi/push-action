@@ -10,11 +10,11 @@ inputs:
   author:
     description: 'Commit author'
     required: false
-    default: '${GITHUB_ACTOR}'
+    default: '"${GITHUB_ACTOR}"'
   email:
     description: 'Committer email'
     required: false
-    default: '${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com'
+    default: '"${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"'
   rebase:
     description: 'Pull rebase config'
     required: false
@@ -26,7 +26,7 @@ inputs:
   branch:
     description: 'Git branch'
     required: false
-    default: '${GITHUB_REF_NAME}'
+    default: '"${GITHUB_REF_NAME}"'
   files:
     description: 'Files to push'
     required: false
