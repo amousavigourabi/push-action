@@ -8,6 +8,7 @@ then
   git switch $1
 else
   git switch --orphan $1
+  git rm --cached -r .
   git commit --allow-empty -m "Initialize branch"
 fi
 git merge --squash --strategy-option=theirs --allow-unrelated-histories $work_branch
