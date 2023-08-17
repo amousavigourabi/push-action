@@ -13,6 +13,6 @@ fi
 git merge --squash --strategy-option=theirs --allow-unrelated-histories $work_branch
 if [ -n "$stash_ref" ]
 then
-  git stash pop "$stash_ref"
+  git stash apply $stash_ref
 fi
 git reset HEAD -- .
